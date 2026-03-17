@@ -1,0 +1,159 @@
+:root {
+  /* Fonts */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing System */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Light Theme Variables */
+:root[data-theme='light'] {
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-tertiary: #F1F5F9;
+  --bg-overlay: rgba(255, 255, 255, 0.8);
+  
+  /* Text */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+  
+  /* Borders */
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-focus: #3B82F6;
+  
+  /* Accents */
+  --accent-primary: #4F46E5; /* Indigo */
+  --accent-secondary: #06B6D4; /* Cyan */
+  --accent-purple: #8B5CF6; /* Violet */
+  --accent-danger: #EF4444;
+  --accent-success: #10B981;
+  --accent-warning: #F59E0B;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-border: 0 0 0 1px var(--border-light);
+}
+
+/* Dark Theme Variables */
+:root[data-theme='dark'] {
+  /* Backgrounds */
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --bg-overlay: rgba(15, 23, 42, 0.8);
+  
+  /* Text */
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-tertiary: #64748B;
+  
+  /* Borders */
+  --border-light: #334155;
+  --border-medium: #475569;
+  --border-focus: #60A5FA;
+  
+  /* Accents - slightly adjusted for dark mode visibility */
+  --accent-primary: #6366F1; /* Lighter Indigo */
+  --accent-secondary: #22D3EE; /* Lighter Cyan */
+  --accent-purple: #A78BFA; /* Lighter Violet */
+  --accent-danger: #F87171;
+  --accent-success: #34D399;
+  --accent-warning: #FBBF24;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --shadow-border: 0 0 0 1px var(--border-light);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-secondary);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Glass UI utility */
+.glass-panel {
+  background: var(--bg-overlay);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}

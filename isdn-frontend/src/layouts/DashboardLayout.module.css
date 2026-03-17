@@ -1,0 +1,118 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-primary);
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal);
+  z-index: 40;
+}
+
+.logo {
+  padding: var(--space-6);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav {
+  flex: 1;
+  padding: var(--space-4) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.navItem:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.navItem.active {
+  background-color: var(--accent-primary);
+  color: #fff;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Important to prevent flex items from overflowing */
+}
+
+.topBar {
+  height: 72px;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  flex-shrink: 0;
+}
+
+.search {
+  flex: 1;
+  max-width: 400px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.content {
+  flex: 1;
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+/* Mobile responsive */
+.menuBtn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menuBtn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+}
